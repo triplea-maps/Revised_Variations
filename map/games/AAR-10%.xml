@@ -703,6 +703,13 @@
       <cost resource="PUs" quantity="40"/>
       <result resourceOrUnit="aaGun" quantity="1"/>
     </productionRule>
+    <repairRule name="repairFactory">
+      <cost resource="PUs" quantity="10"/>
+      <result resourceOrUnit="factory" quantity="1"/>
+    </repairRule>
+    <repairFrontier name="repair">
+      <repairRules name="repairFactory"/>
+    </repairFrontier>
     <productionFrontier name="production">
       <frontierRules name="buyInfantry"/>
       <frontierRules name="buyArtillery"/>
@@ -736,6 +743,11 @@
     <playerProduction player="Americans" frontier="production"/>
     <playerProduction player="Germans" frontier="production"/>
     <playerProduction player="Russians" frontier="production"/>
+    <playerRepair player="Germans" frontier="repair"/>
+    <playerRepair player="Russians" frontier="repair"/>
+    <playerRepair player="Japanese" frontier="repair"/>
+    <playerRepair player="British" frontier="repair"/>
+    <playerRepair player="Americans" frontier="repair"/>
   </production>
   <attachmentList>
     <attachment name="techAttachment" attachTo="Germans" javaClass="games.strategy.triplea.attachments.TechAttachment" type="player">
@@ -822,7 +834,6 @@
       <option name="attack" value="4"/>
       <option name="defense" value="1"/>
       <option name="isStrategicBomber" value="true"/>
-      <option name="bombingMaxDieSides" value="60"/>
       <option name="canAirBattle" value="true"/>
       <option name="airAttack" value="1"/>
       <option name="airDefense" value="1"/>
@@ -1543,12 +1554,15 @@
     <property name="Raids May Be Preceeded By Air Battles" value="false" editable="true">
       <boolean/>
     </property>
+    <property name="Damage From Bombing Done To Units Instead Of Territories" value="true" editable="false">
+      <boolean/>
+    </property>
     <!-- Map Name: also used for map utils when asked -->
-    <property name="mapName" value="world_war_ii_revised" editable="false"/>
+    <property name="mapName" value="Revised_Variations" editable="false"/>
     <property name="notes">
       <value><![CDATA[   
         10% of TUV is required each turn in Upkeep. All values & costs x 10. Formerly 0 value areas are now worth 3. Uses LHTR rules.
-        <br>Numbers of units that can be produced in a territory are limited to 10% of the production value. This is not working reliably.
+        <br>Numbers of units that can be produced in a territory are limited to 10% of the production value. Bombing uses V3 rules.
 	        	]]></value>
     </property>
   </propertyList>
