@@ -703,6 +703,13 @@
       <cost resource="PUs" quantity="40"/>
       <result resourceOrUnit="aaGun" quantity="1"/>
     </productionRule>
+    <repairRule name="repairFactory">
+      <cost resource="PUs" quantity="10"/>
+      <result resourceOrUnit="factory" quantity="1"/>
+    </repairRule>
+    <repairFrontier name="repair">
+      <repairRules name="repairFactory"/>
+    </repairFrontier>
     <productionFrontier name="production">
       <frontierRules name="buyInfantry"/>
       <frontierRules name="buyArtillery"/>
@@ -736,6 +743,11 @@
     <playerProduction player="Americans" frontier="production"/>
     <playerProduction player="Germans" frontier="production"/>
     <playerProduction player="Russians" frontier="production"/>
+    <playerRepair player="Germans" frontier="repair"/>
+    <playerRepair player="Russians" frontier="repair"/>
+    <playerRepair player="Japanese" frontier="repair"/>
+    <playerRepair player="British" frontier="repair"/>
+    <playerRepair player="Americans" frontier="repair"/>
   </production>
   <attachmentList>
     <attachment name="techAttachment" attachTo="Germans" javaClass="games.strategy.triplea.attachments.TechAttachment" type="player">
