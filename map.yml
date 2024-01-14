@@ -1,0 +1,7 @@
+map_name: Revised_Variations
+games:
+- {game_name: Revised LHTR-10% Upkeep, file_name: AAR-10%.xml}
+- {game_name: Revised LHTR with Buildcaps, file_name: AAR-Buildcaps.xml}
+- {game_name: Six Army 2 Alliance, file_name: six_army_2a.xml}
+- {game_name: Six Army 3 Alliance, file_name: six_army_3a.xml}
+
